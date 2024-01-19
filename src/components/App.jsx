@@ -5,7 +5,9 @@ import ContactList from './ContactList/ContactList.jsx';
 export const App = () => {
   const [state, setState] = useState({
     contacts: [],
+    filter: '',
     name: '',
+    number: '',
   });
   const handleAddContact = e => {
     e.preventDefault();
@@ -24,7 +26,10 @@ export const App = () => {
     ) {
       setState(prevState => ({
         ...prevState,
-        contacts: [...prevState.contacts, nameInputValue],
+        contacts: [
+          ...prevState.contacts,
+          { name: nameInputValue, number: numberInputValue },
+        ],
       }));
     } else {
       const errorMessage = namePattern.test(nameInputValue)
