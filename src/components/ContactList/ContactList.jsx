@@ -1,9 +1,13 @@
-const ContactList = () => {
+const ContactList = ({ state }) => {
   return (
     <div>
       <h2>ContactList</h2>
 
-      <ul></ul>
+      <ul>
+        {state.contacts.map(contact => {
+          return <li>{contact}</li>;
+        })}
+      </ul>
     </div>
   );
 };

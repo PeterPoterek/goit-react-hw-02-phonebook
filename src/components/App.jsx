@@ -17,7 +17,10 @@ export const App = () => {
     const namePattern = new RegExp(nameInput.pattern);
 
     if (namePattern.test(nameInputValue)) {
-      console.log(nameInputValue);
+      setState(prevState => ({
+        ...prevState,
+        contacts: [...prevState.contacts, nameInputValue],
+      }));
     } else {
       alert(nameInput.title);
     }
@@ -26,7 +29,7 @@ export const App = () => {
   return (
     <>
       <ContactForm addContact={handleAddContact} />
-      <ContactList />
+      <ContactList state={state} />
     </>
   );
 };
