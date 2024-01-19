@@ -8,9 +8,24 @@ export const App = () => {
     name: '',
   });
 
+  const handleAddContact = e => {
+    e.preventDefault();
+
+    const nameInput = e.target[0];
+
+    const nameInputValue = nameInput.value;
+    const namePattern = new RegExp(nameInput.pattern);
+
+    if (namePattern.test(nameInputValue)) {
+      console.log(nameInputValue);
+    } else {
+      alert(nameInput.title);
+    }
+  };
+
   return (
     <>
-      <ContactForm />
+      <ContactForm addContact={handleAddContact} />
       <ContactList />
     </>
   );
