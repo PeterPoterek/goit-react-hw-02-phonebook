@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+
 const ContactList = ({ state }) => {
   return (
     <div>
@@ -5,7 +7,8 @@ const ContactList = ({ state }) => {
 
       <ul>
         {state.contacts.map(contact => {
-          return <li>{contact}</li>;
+          const id = nanoid();
+          return <li key={id}>{contact}</li>;
         })}
       </ul>
     </div>
