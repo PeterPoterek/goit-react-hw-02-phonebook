@@ -1,9 +1,17 @@
+import {
+  ContactFormContainer,
+  ContactFormUI,
+  ContactFormLabel,
+  ContactFormInput,
+  ContactFormAddButton,
+} from './ContactFormStyles';
+
 const ContactForm = ({ addContact }) => {
   return (
-    <div>
-      <form onSubmit={addContact}>
-        <label htmlFor="name">Name:</label>
-        <input
+    <ContactFormContainer>
+      <ContactFormUI onSubmit={addContact}>
+        <ContactFormLabel htmlFor="name">Name:</ContactFormLabel>
+        <ContactFormInput
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -11,8 +19,8 @@ const ContactForm = ({ addContact }) => {
           required
         />
 
-        <label htmlFor="number">Number:</label>
-        <input
+        <ContactFormLabel htmlFor="number">Number:</ContactFormLabel>
+        <ContactFormInput
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -20,9 +28,9 @@ const ContactForm = ({ addContact }) => {
           required
         />
 
-        <button type="submit">Add contact</button>
-      </form>
-    </div>
+        <ContactFormAddButton type="submit">Add contact</ContactFormAddButton>
+      </ContactFormUI>
+    </ContactFormContainer>
   );
 };
 
