@@ -3,10 +3,14 @@ import ContactListItem from 'components/ContactListItem/ContactListItem.jsx';
 import { nanoid } from 'nanoid';
 
 const ContactList = ({ state }) => {
+  const filteredContacts = state.contacts.filter(contact =>
+    contact.name.toLowerCase().includes(state.filter.toLowerCase())
+  );
+
   return (
     <div>
       <ul>
-        {state.contacts.map(contact => {
+        {filteredContacts.map(contact => {
           const id = nanoid();
           return (
             <ContactListItem

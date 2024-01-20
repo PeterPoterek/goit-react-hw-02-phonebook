@@ -41,13 +41,20 @@ export const App = () => {
     }
   };
 
+  const handleFilterChange = filterValue => {
+    setState(prevState => ({
+      ...prevState,
+      filter: filterValue,
+    }));
+  };
+
   return (
     <>
       <h2>Phonebook</h2>
       <ContactForm addContact={handleAddContact} />
 
       <h2>Contacts</h2>
-      <Filter state={state} />
+      <Filter handleFilterChange={handleFilterChange} />
       <ContactList state={state} />
     </>
   );

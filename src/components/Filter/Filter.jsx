@@ -1,6 +1,6 @@
-const Filter = ({ state }) => {
+const Filter = ({ handleFilterChange }) => {
   const filterContactsByName = e => {
-    console.log(state);
+    handleFilterChange(e.target.value);
   };
 
   return (
