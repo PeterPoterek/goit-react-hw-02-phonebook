@@ -5,6 +5,39 @@ import ContactForm from './ContactForm/ContactForm.jsx';
 import ContactList from './ContactList/ContactList.jsx';
 import Filter from 'components/Filter/Filter.jsx';
 
+import styled from 'styled-components';
+
+const AppContatiner = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+`;
+
+const AppWrapper = styled.div`
+  background-color: #1f2937;
+
+  max-width: 750px;
+
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  padding: 2.5rem;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+`;
+
+const AppHeader = styled.h2`
+  margin-top: 0;
+  margin-bottom: 2rem;
+
+  font-size: 3rem;
+`;
+
 export const App = () => {
   const [state, setState] = useState({
     contacts: [],
@@ -12,6 +45,7 @@ export const App = () => {
     name: '',
     number: '',
   });
+
   const handleAddContact = e => {
     e.preventDefault();
 
@@ -60,6 +94,7 @@ export const App = () => {
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
+
   const handleFilterChange = filterValue => {
     setState(prevState => ({
       ...prevState,
@@ -69,12 +104,16 @@ export const App = () => {
 
   return (
     <>
-      <h2>Phonebook</h2>
-      <ContactForm addContact={handleAddContact} />
+      <AppContatiner>
+        <AppWrapper>
+          <AppHeader>Phonebook</AppHeader>
+          <ContactForm addContact={handleAddContact} />
 
-      <h2>Contacts</h2>
-      <Filter handleFilterChange={handleFilterChange} />
-      <ContactList state={state} removeContact={handleRemoveContact} />
+          <AppHeader>Contacts</AppHeader>
+          <Filter handleFilterChange={handleFilterChange} />
+          <ContactList state={state} removeContact={handleRemoveContact} />
+        </AppWrapper>
+      </AppContatiner>
     </>
   );
 };
