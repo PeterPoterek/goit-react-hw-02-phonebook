@@ -1,5 +1,11 @@
-const ContactListItem = ({ text }) => {
-  return <li>{text}</li>;
+const ContactListItem = ({ name, number }) => {
+  return (
+    <li>
+      <span>{name}</span>
+      <span>{number}</span>
+      <button>Delete</button>
+    </li>
+  );
 };
 
 export default ContactListItem;

@@ -12,7 +12,8 @@ const ContactList = ({ state }) => {
           return (
             <ContactListItem
               key={contact.id}
-              text={`${contact.name} ${contact.number}`}
+              name={contact.name}
+              number={contact.number}
             />
           );
         })}
