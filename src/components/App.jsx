@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 import ContactForm from './ContactForm/ContactForm.jsx';
 import ContactList from './ContactList/ContactList.jsx';
@@ -26,12 +27,15 @@ export const App = () => {
       namePattern.test(nameInputValue) &&
       numberPattern.test(numberInputValue)
     ) {
+      const newContact = {
+        id: `id-${nanoid()}`,
+        name: nameInputValue,
+        number: numberInputValue,
+      };
+
       setState(prevState => ({
         ...prevState,
-        contacts: [
-          ...prevState.contacts,
-          { name: nameInputValue, number: numberInputValue },
-        ],
+        contacts: [...prevState.contacts, newContact],
       }));
     } else {
       const errorMessage = namePattern.test(nameInputValue)
@@ -39,6 +43,8 @@ export const App = () => {
         : nameInput.title;
       alert(errorMessage);
     }
+
+    console.log(state);
   };
 
   const handleFilterChange = filterValue => {
