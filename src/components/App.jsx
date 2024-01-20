@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 import ContactForm from './ContactForm/ContactForm.jsx';
 import ContactList from './ContactList/ContactList.jsx';
+import Filter from 'components/Filter/Filter.jsx';
 
 export const App = () => {
   const [state, setState] = useState({
@@ -41,7 +43,11 @@ export const App = () => {
 
   return (
     <>
+      <h2>Phonebook</h2>
       <ContactForm addContact={handleAddContact} />
+
+      <h2>Contacts</h2>
+      <Filter state={state} />
       <ContactList state={state} />
     </>
   );

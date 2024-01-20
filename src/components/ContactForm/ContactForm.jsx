@@ -1,8 +1,6 @@
 const ContactForm = ({ addContact }) => {
   return (
     <div>
-      <h2>Phonebook</h2>
-
       <form onSubmit={addContact}>
         <label htmlFor="name">Name:</label>
         <input
