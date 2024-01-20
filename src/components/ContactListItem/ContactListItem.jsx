@@ -1,9 +1,9 @@
-const ContactListItem = ({ name, number }) => {
+const ContactListItem = ({ name, number, id, removeContact }) => {
   return (
     <li>
       <span>{name}</span>
       <span>{number}</span>
-      <button>Delete</button>
+      <button onClick={() => removeContact(id)}>Delete</button>
     </li>
   );
 };

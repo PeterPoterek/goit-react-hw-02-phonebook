@@ -1,6 +1,6 @@
 import ContactListItem from 'components/ContactListItem/ContactListItem.jsx';
 
-const ContactList = ({ state }) => {
+const ContactList = ({ state, removeContact }) => {
   const filteredContacts = state.contacts.filter(contact =>
     contact.name.toLowerCase().includes(state.filter.toLowerCase())
   );
@@ -14,6 +14,8 @@ const ContactList = ({ state }) => {
               key={contact.id}
               name={contact.name}
               number={contact.number}
+              id={contact.id}
+              removeContact={removeContact}
             />
           );
         })}

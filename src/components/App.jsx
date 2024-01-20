@@ -54,6 +54,12 @@ export const App = () => {
     }
   };
 
+  const handleRemoveContact = id => {
+    setState(prevState => ({
+      ...prevState,
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
   const handleFilterChange = filterValue => {
     setState(prevState => ({
       ...prevState,
@@ -68,7 +74,7 @@ export const App = () => {
 
       <h2>Contacts</h2>
       <Filter handleFilterChange={handleFilterChange} />
-      <ContactList state={state} />
+      <ContactList state={state} removeContact={handleRemoveContact} />
     </>
   );
 };
