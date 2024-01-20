@@ -1,10 +1,19 @@
+import {
+  ContactListLi,
+  ContactListName,
+  ContactListNumber,
+  ContactListRemoveButton,
+} from './ContactListItemStyles';
+
 const ContactListItem = ({ name, number, id, removeContact }) => {
   return (
-    <li>
-      <span>{name}</span>
-      <span>{number}</span>
-      <button onClick={() => removeContact(id)}>Delete</button>
-    </li>
+    <ContactListLi>
+      <ContactListName>{name}</ContactListName>
+      <ContactListNumber>{number}</ContactListNumber>
+      <ContactListRemoveButton onClick={() => removeContact(id)}>
+        Delete
+      </ContactListRemoveButton>
+    </ContactListLi>
   );
 };
 
