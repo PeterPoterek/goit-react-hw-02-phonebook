@@ -1,11 +1,12 @@
+import Filter from 'components/Filter/Filter';
 import { nanoid } from 'nanoid';
 
 const ContactList = ({ state }) => {
   console.log(state);
   return (
     <div>
-      <h2>ContactList</h2>
-
+      <h2>Contacts</h2>
+      <Filter state={state} />
       <ul>
         {state.contacts.map(contact => {
           const id = nanoid();
