@@ -1,4 +1,5 @@
 import ContactListItem from 'components/ContactListItem/ContactListItem.jsx';
+import { ContactListContainer, ContactListUl } from './ContactListStyles';
 
 const ContactList = ({ state, removeContact }) => {
   const filteredContacts = state.contacts.filter(contact =>
@@ -6,8 +7,8 @@ const ContactList = ({ state, removeContact }) => {
   );
 
   return (
-    <div>
-      <ul>
+    <ContactListContainer>
+      <ContactListUl>
         {filteredContacts.map(contact => {
           return (
             <ContactListItem
@@ -19,8 +20,8 @@ const ContactList = ({ state, removeContact }) => {
             />
           );
         })}
-      </ul>
-    </div>
+      </ContactListUl>
+    </ContactListContainer>
   );
 };
 
