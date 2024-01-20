@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FilterContainer, FilterLabel, FilterInput } from './FilterStyles';
 
 const Filter = ({ handleFilterChange }) => {
@@ -11,6 +12,10 @@ const Filter = ({ handleFilterChange }) => {
       <FilterInput onChange={filterContactsByName} type="filter" />
     </FilterContainer>
   );
+};
+
+Filter.propTypes = {
+  handleFilterChange: PropTypes.func.isRequired,
 };
 
 export default Filter;

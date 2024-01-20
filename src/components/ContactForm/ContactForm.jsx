@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   ContactFormContainer,
   ContactFormUI,
@@ -32,6 +34,9 @@ const ContactForm = ({ addContact }) => {
       </ContactFormUI>
     </ContactFormContainer>
   );
+};
+ContactForm.propTypes = {
+  addContact: PropTypes.func.isRequired,
 };
 
 export default ContactForm;

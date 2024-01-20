@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import ContactListItem from 'components/ContactListItem/ContactListItem.jsx';
 import { ContactListContainer, ContactListUl } from './ContactListStyles';
 
@@ -28,6 +30,20 @@ const ContactList = ({ state, removeContact }) => {
       </ContactListUl>
     </ContactListContainer>
   );
+};
+
+ContactList.propTypes = {
+  state: PropTypes.shape({
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    filter: PropTypes.string.isRequired,
+  }).isRequired,
+  removeContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;
