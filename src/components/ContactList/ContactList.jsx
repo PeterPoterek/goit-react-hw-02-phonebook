@@ -9,13 +9,7 @@ const ContactList = ({ state }) => {
       <ul>
         {state.contacts.map(contact => {
           const id = nanoid();
-          return (
-            <li key={id}>
-              {contact.name}
-
-              {contact.number}
-            </li>
-          );
+          return <li key={id}>{`${contact.name} ${contact.number}`}</li>;
         })}
       </ul>
     </div>
