@@ -1,13 +1,15 @@
+import { FilterContainer, FilterLabel, FilterInput } from './FilterStyles';
+
 const Filter = ({ handleFilterChange }) => {
   const filterContactsByName = e => {
     handleFilterChange(e.target.value);
   };
 
   return (
-    <div>
-      <label htmlFor="filter">Find contacts by name</label>
-      <input onChange={filterContactsByName} type="filter" />
-    </div>
+    <FilterContainer>
+      <FilterLabel htmlFor="filter">Find contacts by name</FilterLabel>
+      <FilterInput onChange={filterContactsByName} type="filter" />
+    </FilterContainer>
   );
 };
 
