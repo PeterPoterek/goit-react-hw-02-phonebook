@@ -23,6 +23,15 @@ export const App = () => {
     const numberInputValue = numberInput.value;
     const numberPattern = new RegExp(numberInput.pattern);
 
+    const isContactExists = state.contacts.some(
+      contact => contact.name.toLowerCase() === nameInputValue.toLowerCase()
+    );
+
+    if (isContactExists) {
+      alert(`${nameInputValue} is already in contacts.`);
+      return;
+    }
+
     if (
       namePattern.test(nameInputValue) &&
       numberPattern.test(numberInputValue)
@@ -43,8 +52,6 @@ export const App = () => {
         : nameInput.title;
       alert(errorMessage);
     }
-
-    console.log(state);
   };
 
   const handleFilterChange = filterValue => {
