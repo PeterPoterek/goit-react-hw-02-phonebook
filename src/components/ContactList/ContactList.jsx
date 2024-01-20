@@ -1,4 +1,6 @@
-import Filter from 'components/Filter/Filter';
+import ContactListItem from 'components/ContactListItem/ContactListItem.jsx';
+import Filter from 'components/Filter/Filter.jsx';
+
 import { nanoid } from 'nanoid';
 
 const ContactList = ({ state }) => {
@@ -10,7 +12,12 @@ const ContactList = ({ state }) => {
       <ul>
         {state.contacts.map(contact => {
           const id = nanoid();
-          return <li key={id}>{`${contact.name} ${contact.number}`}</li>;
+          return (
+            <ContactListItem
+              key={id}
+              text={`${contact.name} ${contact.number}`}
+            />
+          );
         })}
       </ul>
     </div>
