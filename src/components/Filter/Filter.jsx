@@ -9,7 +9,7 @@ const Filter = ({ handleFilterChange }) => {
   return (
     <FilterContainer>
       <FilterLabel htmlFor="filter">Find contacts by name</FilterLabel>
-      <FilterInput onChange={filterContactsByName} type="filter" />
+      <FilterInput id="filter" onChange={filterContactsByName} type="filter" />
     </FilterContainer>
   );
 };
